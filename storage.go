@@ -5,6 +5,8 @@ import (
 	"os"
 )
 
+// [] After name of struct, means using generics
+// any is an interface
 type Storage[T any] struct {
 	FileName string
 }
