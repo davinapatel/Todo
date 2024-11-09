@@ -1,7 +1,11 @@
 package main
 
-import "fmt"
-
 func main() {
-	fmt.Println("Inside main in todo app")
+
+	actions := ToDos{}
+	storage := NewStorage[ToDos]("todos.json")
+	storage.Load(&actions)
+	cmdFlags := NewCmdFlags()
+	cmdFlags.Execute(&actions)
+	storage.Save(actions)
 }
